@@ -1,6 +1,22 @@
 # tauri_yew_ios
 An app compiled by tauri+yew running on ios
 
+# compile
+
+just run:
+
+```
+cd tauri-demo
+cargo tauri ios init
+cargo tauri ios build
+or
+cagro tauri ios dev
+```
+
+# screenshot
+
+![ios](screenshots/ios.PNG "emulator")
+
 # create
 
 Generate a demo
@@ -51,6 +67,13 @@ fn start_app() {
 }
 ```
 
+add to `tauri-demo/Cargo.toml`
+
+```
+[lib]
+crate-type = ["staticlib", "cdylib", "rlib"]
+```
+
 change `identifier` in `tauri-demo/src-tauri/tauri.conf.json`
 
 change `IPHONEOS_DEPLOYMENT_TARGET` in `tauri-demo/src-tauri/gen/apple/tauri-demo.xcodeproj/project.pbxproj`
@@ -58,18 +81,6 @@ change `IPHONEOS_DEPLOYMENT_TARGET` in `tauri-demo/src-tauri/gen/apple/tauri-dem
 # patch for dev
 
 change `address = "127.0.0.1"` to `address = "0.0.0.0"` in `tauri-demo/Trunk.toml`
-
-# compile
-
-run:
-
-```
-cd tauri-demo
-cargo tauri ios init
-cargo tauri ios build
-or
-cagro tauri ios dev
-```
 
 # Troubleshooting
 
@@ -85,6 +96,7 @@ curl -L https://get.rvm.io | bash -s stable --rails
 ```
 
 > https://www.jianshu.com/p/36a7a354d10f
+
 > https://stackoverflow.com/questions/31972968/cant-install-gems-on-os-x-el-capitan/33043199#33043199
 
 ## 2. GCC_PREPROCESSOR_DEFINITIONS: parameter null or not set
